@@ -75,7 +75,7 @@ const SignUpForm = () => {
           if (error.error.code === "USER_ALREADY_EXISTS") {
             toast.error("Email ou senha inválidos");
 
-            form.setError("email", {
+            return form.setError("email", {
               message: "Email já cadastrado",
             });
           }
