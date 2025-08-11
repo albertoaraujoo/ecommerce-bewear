@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { productTable, productVariantTable } from "@/db/schema";
 import { cn } from "@/lib/utils";
-import { formatPrice } from "@/utils/priceFormatter";
+import { formatPrice } from "@/utils/formatPrice";
 
 interface ProductItemProps {
   product: typeof productTable.$inferSelect & {
@@ -17,7 +17,10 @@ const ProductItem = ({ product, textContainerClassname }: ProductItemProps) => {
   const firstVariant = product.variants[0];
 
   return (
-    <Link href="/" className="flex flex-col gap-4">
+    <Link
+      href={`/product-variant/${firstVariant.slug}`}
+      className="flex flex-col gap-4"
+    >
       <Image
         src={firstVariant.imageUrl}
         alt={product.name}
