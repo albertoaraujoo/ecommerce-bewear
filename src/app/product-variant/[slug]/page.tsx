@@ -8,6 +8,8 @@ import { db } from "@/db";
 import { productTable, productVariantTable } from "@/db/schema";
 import { formatPrice } from "@/utils/formatPrice";
 
+import AddToCartButton from "./components/add-to-cart-button";
+import ProductActions from "./components/product-actions";
 import VariantSelector from "./components/variant-selector";
 
 interface ProductVariantPageProps {
@@ -47,7 +49,7 @@ const ProductVariantPage = async ({ params }: ProductVariantPageProps) => {
         width={0}
         height={0}
         sizes="100vw"
-        className="h-auto w-full rounded-3xl"
+        className="h-auto w-full"
       />
 
       {/* Variants cards */}
@@ -67,17 +69,7 @@ const ProductVariantPage = async ({ params }: ProductVariantPageProps) => {
         </h3>
       </div>
 
-      <div className="px-5">{/* quantidade */}</div>
-
-      {/* Buttons */}
-      <div className="flex flex-col space-y-4 px-5">
-        <Button className="rounded-full" size="lg" variant="outline">
-          Adicionar à sacola
-        </Button>
-        <Button className="rounded-full" size="lg">
-          Comprar agora
-        </Button>
-      </div>
+      <ProductActions productVariantId={productVariant.id} />
 
       {/* Product Description */}
       <div className="px-5 py-3">

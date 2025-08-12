@@ -1,13 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// interface ProductListProps {
-//   title: string;
-//   products: (typeof productTable.$inferSelect & {
-//     variants: (typeof productVariantTable.$inferSelect)[];
-//   })[];
-// }
-
 const brands = [
   {
     id: 1,
@@ -49,7 +42,7 @@ const brands = [
 const BrandList = () => {
   return (
     <div className="space-y-6">
-      <h3 className="px-5 text-2xl font-semibold">Marcas parceiras</h3>
+      <h3 className="px-5 text-xl font-semibold">Marcas parceiras</h3>
       <div className="flex w-full gap-6 overflow-x-auto px-5 pb-10 [&::-webkit-scrollbar]:hidden">
         {brands.map((brand) => (
           <div key={brand.id} className="flex flex-col items-center gap-4">

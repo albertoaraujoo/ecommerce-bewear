@@ -1,12 +1,11 @@
-"use client";
-
+import { useQuery } from "@tanstack/react-query";
 import { ShoppingBasketIcon } from "lucide-react";
 
+import { getCart } from "@/actions/get-cart";
+
 import { Button } from "../ui/button";
-// import { useQuery } from "@tanstack/react-query";
 // import { ShoppingBasketIcon } from "lucide-react";
 // import Image from "next/image";
-// import { getCart } from "@/actions/get-cart";
 // import { Button } from "@/components/ui/button";
 // import { formatCentsToBRL } from "@/helpers/money";
 // import { ScrollArea } from "../ui/scroll-area";
@@ -21,10 +20,10 @@ import {
 // import CartItem from "./cart-item";
 
 const Cart = () => {
-  //   const { data: cart, isPending: cartIsLoading } = useQuery({
-  //     queryKey: ["cart"],
-  //     queryFn: () => getCart(),
-  //   });
+  const { data: cart, isPending: cartIsLoading } = useQuery({
+    queryKey: ["cart"],
+    queryFn: () => getCart(),
+  });
   return (
     <Sheet>
       <SheetTrigger asChild>
